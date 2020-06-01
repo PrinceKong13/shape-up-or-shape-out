@@ -1,0 +1,38 @@
+#shapeDiv {
+  width: 600px;
+  height: 600px;
+  background-color: lightgray;
+  position: relative;
+}
+
+.square {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.rectangle {
+  position: absolute;
+  display: inline-block;
+  width: 200px;
+  height: 100px;
+  background: green;
+}
+
+.circle {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: purple;
+  border-radius: 50%;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid yellow;
+}
