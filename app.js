@@ -3,26 +3,35 @@ let circleBtn = document.getElementById("circleBtn");
 let rectangleBtn = document.getElementById("rectangleBtn");
 let triangleBtn = document.getElementById("triangleBtn");
 let shapeDiv = document.getElementById("shapeDiv");
-const MAX = 600;
+const MAX = 570;
 
 class Shape {
   constructor(type, width, height) {
     this.type = type;
     this.width = width;
     this.height = height;
+    this.reduceToMax();
+  }
+  
+  draw() {
+    this.div = document.createElement("div");
+    this.div.classList.add(this.type);
+    this.div.style.height = `${this.height}px`;
+    this.div.style.width = `${this.width}px`;
+    let maxHeight = document.getElementById("shapeDiv").offsetHeight - this.height;
+    let maxWidth = document.getElementById("shapeDiv").offsetWidth - this.width;
+    shapeDiv.appendChild(this.div);
+    this.div.style.left = `${((Math.random() * maxWidth))}px`;
+    this.div.style.top = `${(Math.random() * maxHeight)}px`;
   }
 
-  draw() {
-    let newShape = document.createElement("div");
-    newShape.classList.add(this.type);
-    newShape.style.height = `${this.height}px`;
-    newShape.style.width = `${this.width}px`;
-    newShape.style.right = `${Math.round(Math.random * MAX)}px`;
-    newShape.style.left = `${Math.round(Math.random * MAX)}px`;
-    newShape.style.top = `${Math.round(Math.random * MAX)}px`;
-    newShape.style.bottom = `${Math.round(Math.random * MAX)}px`;
-    shapeDiv.appendChild(newShape);
+  reduceToMax() {
+    if(this.width || this.height == MAX) {
+      this.width = MAX;
+      this.height = MAX;
+    }
   }
+
 }
 
 class Rectangle extends Shape {
@@ -35,7 +44,6 @@ class Rectangle extends Shape {
 class Square extends Rectangle {
   constructor(type, width, height) {
     super(type, width, height);
-    this.draw();
   }
 }
 
@@ -53,12 +61,16 @@ class Triangle extends Shape {
   }
 
   draw() {
-    let newShape = document.createElement("div");
-    newShape.classList.add(this.type);
-    newShape.style.borderBottomWidth = `${this.width}px`;
-    newShape.style.borderRightWidth = `${this.height}px`;
-    newShape.style.borderLeftWidth = `${this.height}px`;
-    shapeDiv.appendChild(newShape);
+    this.div = document.createElement("div");
+    this.div.classList.add(this.type);
+    this.div.style.borderBottomWidth = `${this.width}px`;
+    this.div.style.borderRightWidth = `${this.height}px`;
+    this.div.style.borderLeftWidth = `${this.height}px`;
+    let maxHeight = document.getElementById("shapeDiv").offsetHeight - this.height;
+    let maxWidth = document.getElementById("shapeDiv").offsetWidth - this.width;
+    shapeDiv.appendChild(this.div);
+    this.div.style.left = `${((Math.random() * maxWidth))}px`;
+    this.div.style.top = `${(Math.random() * maxHeight)}px`;
   }
 }
 
@@ -93,3 +105,11 @@ triangleBtn.addEventListener("click", () => {
     document.querySelector("#triangleHeight").value / 2
   );
 });
+
+function getRandomX() {
+  return Math.floor(Math.random() * maxWidth);
+}
+
+function getRandomY() {
+  return Math.floor(Math.random() * maxHeight);
+}
