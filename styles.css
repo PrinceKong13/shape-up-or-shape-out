@@ -8,6 +8,7 @@
 
 .square {
   position: absolute;
+  cursor: pointer;
   width: 100px;
   height: 100px;
   background: red;
@@ -15,6 +16,7 @@
 
 .rectangle {
   position: absolute;
+  cursor: pointer;
   width: 200px;
   height: 100px;
   background: green;
@@ -22,6 +24,7 @@
 
 .circle {
   position: absolute;
+  cursor: pointer;
   width: 100px;
   height: 100px;
   background: purple;
@@ -30,9 +33,9 @@
 
 .triangle {
   position: absolute;
+  cursor: pointer;
   width: 0;
   height: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-  border-bottom: 100px solid yellow;
+  border-bottom: 100px solid red;
+  border-right: 100px solid transparent;
 }
