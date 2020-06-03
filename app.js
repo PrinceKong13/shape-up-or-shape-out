@@ -3,7 +3,7 @@ let circleBtn = document.getElementById("circleBtn");
 let rectangleBtn = document.getElementById("rectangleBtn");
 let triangleBtn = document.getElementById("triangleBtn");
 let shapeDiv = document.getElementById("shapeDiv");
-const MAX = 570;
+const MAX = 600;
 
 class Shape {
   constructor(type, width, height) {
