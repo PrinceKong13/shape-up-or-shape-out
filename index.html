@@ -12,13 +12,8 @@
 
 <body>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Shape Maker</h1>
-                <p class="lead">Set the sizes for your shapes and click the button to generate them</p>
-            </div>
-        </div>
-        <div class="row">Rectangle</div>
+        <div class="row header">Add a Shape!</div>
+        <div class="row input-row">Rectangle</div>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -30,7 +25,7 @@
                 <button type="button" class="btn btn-primary" id="rectangleBtn">Add Shape</button>
             </div>
         </form>
-        <div class="row">Square</div>
+        <div class="row input-row">Square</div>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -39,7 +34,7 @@
                 <button type="button" class="btn btn-primary" id="squareBtn">Add Shape</button>
             </div>
         </form>
-        <div class="row">Circle</div>
+        <div class="row input-row">Circle</div>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -48,7 +43,7 @@
                 <button type="button" class="btn btn-primary" id="circleBtn">Add Shape</button>
             </div>
         </form>
-        <div class="row">Isoceles Right Triangle</div>
+        <div class="row input-row">Isoceles Right Triangle</div>
         <form>
             <div class="form-row">
                 <div class="col">
@@ -59,7 +54,7 @@
         </form>
         <div class="row">
             <div id="shapeDiv" class="col-6"></div>
-            <div id="infoDiv" class="col-6">Shape Details</div>
+            <div id="infoDiv" class="col-2">Shape Info:</div>
         </div>
     </div>
     <script src="app.js"></script>

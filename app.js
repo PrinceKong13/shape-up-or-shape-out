@@ -5,18 +5,16 @@ let triangleBtn = document.getElementById("triangleBtn");
 let shapeDiv = document.getElementById("shapeDiv");
 const MAX = 570;
 
-
 class Shape {
   constructor(type, width, height) {
     this.type = type;
     this.width = width;
     this.height = height;
-    this.radius = "-"
-    this.perimeter = (this.height * 2) + (this.width * 2);
+    this.radius = "-";
+    this.perimeter = this.height * 2 + this.width * 2;
     this.area = this.height * this.width;
     this.reduceToMax();
     this.draw();
-
   }
 
   draw() {
@@ -37,29 +35,27 @@ class Shape {
     if (this.width >= MAX) {
       this.width = MAX;
     }
-    if(this.height >= MAX) {
+    if (this.height >= MAX) {
       this.height = MAX;
     }
   }
-    
-  
 
   getInfo() {
     let infoDiv = document.getElementById("infoDiv");
-    infoDiv.innerHTML =
-     `Shape Info: <br> 
+    infoDiv.innerHTML = `Shape Info: <br> 
+     Shape: ${this.type} <br>
      Width: ${this.width} <br>
      Height: ${this.height} <br>
      Radius: ${this.radius} <br>
      Area: ${this.area} <br>
-     Perimeter: ${this.perimeter}`
-
+     Perimeter: ${this.perimeter}`;
   }
 
   remove() {
     event.target.remove();
+    let infoDiv = document.getElementById("infoDiv");
+    infoDiv.innerHTML = "";
   }
-
 }
 
 class Rectangle extends Shape {
@@ -83,15 +79,13 @@ class Circle extends Shape {
     this.perimeter = Math.round(2 * Math.PI * this.radius);
     this.area = Math.round(Math.PI * (this.radius * this.radius));
   }
-
 }
 
-//This takes a width parameter, but frankly doesn't need it and I don't know how to call the super and only take the parameters I need.
 //This has its own draw function because it uses different css stylings than the other shapes
 class Triangle extends Shape {
   constructor(type, width, height) {
     super(type, width, height);
-    this.perimeter = 2 * this.height + (Math.sqrt(2)) * this.height;
+    this.perimeter = 2 * this.height + Math.sqrt(2) * this.height;
     this.area = 0.5 * this.height * this.height;
   }
 
@@ -109,7 +103,6 @@ class Triangle extends Shape {
     this.div.addEventListener("dblclick", () => this.remove());
   }
 }
-
 
 //Listeners for each button
 
