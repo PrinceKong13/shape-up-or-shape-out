@@ -85,8 +85,8 @@ class Circle extends Shape {
 class Triangle extends Shape {
   constructor(type, width, height) {
     super(type, width, height);
-    this.perimeter = 2 * this.height + Math.sqrt(2) * this.height;
-    this.area = 0.5 * this.height * this.height;
+    this.perimeter = Math.round(2 * this.height + Math.sqrt(2) * this.height);
+    this.area = Math.round(0.5 * this.height * this.height);
   }
 
   draw() {
